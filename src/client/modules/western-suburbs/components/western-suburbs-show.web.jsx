@@ -51,7 +51,7 @@ const WesternSuburbsShow = () => {
       {photosModules.length}
       {photosModules.map((photosModule, index) => {
         return (
-          <Image url={photosModule.content} />
+          <Image key={index} url={photosModule.content} />
         )
       })}
     </PageLayout>
