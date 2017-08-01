@@ -11,7 +11,6 @@ let photosModules = [];
 // require.context("../../../../../assets/thumbnails", false, /.jpg/);
 
 context.keys().forEach((filename)=>{
-  console.log(filename);
   photosModules.push({filename: filename, content: context(filename)});
 });
 photosModules.sort((a, b) => {
@@ -19,7 +18,6 @@ photosModules.sort((a, b) => {
 })
 for (let i = 0; i < photosModules.length; i++){
   let photo = photosModules[i];
-  console.log('after sorting: ' + photo.filename + ', ' + photo.content);
 }
 
 const Image2 = styled.div`
