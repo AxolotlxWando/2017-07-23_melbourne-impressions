@@ -51,7 +51,9 @@ if (window.__APOLLO_STATE__) {
   initialState = window.__APOLLO_STATE__;
 }
 
-const history = createHistory();
+const history = createHistory({
+  basename: "/development/melbourne-impression"
+});
 
 const logPageView = location => {
   ReactGA.set({ page: location.pathname });
