@@ -14,7 +14,7 @@ const NavBar = () => (
         </Nav>
         {(!__PERSIST_GQL__ || __DEV__) && <Nav className="ml-auto" navbar>
           <NavItem>
-            <a href="/graphiql">GraphiQL</a>
+            <a href={__PUBLIC_URL__ + "/graphiql"}>GraphiQL</a>
           </NavItem>
         </Nav>}
       </Row>
