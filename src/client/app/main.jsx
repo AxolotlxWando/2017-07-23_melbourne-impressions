@@ -22,10 +22,10 @@ let networkInterface = createBatchingNetworkInterface({
     credentials: "same-origin",
   },
   batchInterval: 20,
-  uri: __BACKEND_URL__ || "/graphql",
+  uri: __PUBLIC_URL__ || "/graphql",
 });
 if (__CLIENT__) {
-  const wsClient = new SubscriptionClient((__BACKEND_URL__ || (window.location.origin + '/graphql'))
+  const wsClient = new SubscriptionClient((__PUBLIC_URL__ || (window.location.origin + '/graphql'))
     .replace(/^http/, 'ws'), {
       reconnect: true
   });
@@ -58,7 +58,7 @@ const logPageView = location => {
   ReactGA.pageview(location.pathname);
 };
 
-// Initialize Google Analytics and send events on each location change 
+// Initialize Google Analytics and send events on each location change
 ReactGA.initialize('UA-000000-01'); // Replace your Google tracking code here
 logPageView(window.location);
 
