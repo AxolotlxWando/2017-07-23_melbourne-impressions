@@ -20,12 +20,13 @@ import settings from '../../../settings';
 
 let assetMap;
 
-const { protocol, hostname, port, pathname } = url.parse(__BACKEND_URL__);
-const apiUrl = `${protocol}//${hostname}:${process.env.PORT || port}${pathname}`;
+// const { protocol, hostname, port, pathname } = url.parse(__BACKEND_URL__);
+// const apiUrl = `${protocol}//${hostname}:${process.env.PORT || port}${pathname}`;
 
 async function renderServerSide(req, res, queryMap) {
   let networkInterface = createBatchingNetworkInterface({
-    uri: apiUrl,
+    // uri: apiUrl,
+    uri: __PUBLIC_URL__ + "/graphql",
     opts: {
       credentials: "same-origin",
       headers: req.headers,
@@ -50,6 +51,7 @@ async function renderServerSide(req, res, queryMap) {
   const component = (
     <ApolloProvider store={store} client={client}>
       <StaticRouter
+        basename={__PUBLIC_URL__}
         location={req.url}
         context={context}
       >
@@ -89,7 +91,7 @@ async function renderServerSide(req, res, queryMap) {
 
 async function renderClientSide(req, res) {
   const helmet = Helmet.renderStatic(); // Avoid memory leak while tracking mounted instances
-  
+
   if (__DEV__ || !assetMap) {
     assetMap = JSON.parse(fs.readFileSync(path.join(settings.frontendBuildDir, 'web', 'assets.json')));
   }
