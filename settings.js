@@ -7,4 +7,6 @@ const envSettings = Object.assign(
   _.get(settings, "env." + process.env.NODE_ENV)
 );
 
+envSettings.publicUrl = process.env.PUBLIC_URL || envSettings.publicUrl
+
 export default envSettings;
