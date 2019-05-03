@@ -1,9 +1,9 @@
 import { graphiqlExpress } from 'graphql-server-express';
 
-const subscriptionsUrl = __BACKEND_URL__.replace(/^http/, 'ws');
+const subscriptionsUrl = __PUBLIC_URL__.replace(/^http/, 'ws') + "/graphql";
 
 export default graphiqlExpress({
-  endpointURL: '/graphql',
+  endpointURL: __PUBLIC_URL__ + '/graphql',
   subscriptionsEndpoint: subscriptionsUrl,
   query:
    '{\n' +

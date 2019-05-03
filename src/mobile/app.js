@@ -8,7 +8,7 @@ import { SubscriptionClient } from 'subscriptions-transport-ws';
 import modules from '../client/modules/counter';
 import Counter from '../client/modules/counter/containers/counter';
 
-const networkInterface = new SubscriptionClient(__PUBLIC_URL__.replace(/^http/, 'ws'), {
+const networkInterface = new SubscriptionClient(__PUBLIC_URL__.replace(/^http/, 'ws') + '/graphql', {
   reconnect: true
 });
 
