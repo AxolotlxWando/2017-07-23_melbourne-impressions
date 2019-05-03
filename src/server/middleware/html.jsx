@@ -33,7 +33,6 @@ const Html = ({ content, state, assetMap, css, helmet }) => {
         {!!css && css}
       </head>
       <body {...bodyAttrs}>
-        <h1>{'Backend url is ' + __PUBLIC_URL__}</h1>
         <div id="content" dangerouslySetInnerHTML={{ __html: content || "" }}/>
         <script
           dangerouslySetInnerHTML={{ __html: `window.__APOLLO_STATE__=${serialize(state, { isJSON: true })};` }}
