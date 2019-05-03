@@ -21,7 +21,7 @@ const IS_PERSIST_GQL = settings.persistGraphQL && settings.backend && !IS_TEST;
 global.__DEV__ = process.argv.length >= 3 && (process.argv[2].indexOf('watch') >= 0 || IS_TEST);
 const buildNodeEnv = __DEV__ ? (IS_TEST ? 'test' : 'development') : 'production';
 const backendUrl = settings.backendUrl.replace('{ip}', ip.address());
-const publicUrl = 'http://localhost:80/development/melbourne-impression';
+const publicUrl = settings.publicUrl;
 const { protocol, host } = url.parse(backendUrl);
 const backendBaseUrl = protocol + '//' + host;
 
