@@ -5,6 +5,7 @@
     "dllBuildDir": "build/dll",
     "webpackDevPort": 3000,
     "backendUrl": "http://{ip}:8080/graphql",
+    "publicUrl": "",
     "ssr": true,
     "webpackDll": true,
     "frontendRefreshOnBackendChange": true,
