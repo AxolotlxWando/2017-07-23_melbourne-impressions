@@ -11,7 +11,7 @@ let photosModules = [];
 // require.context("../../../../../assets/thumbnails", false, /.jpg/);
 
 context.keys().forEach((filename)=>{
-  photosModules.push({filename: filename, content: context(filename)});
+  photosModules.push({filename: filename, content: __PUBLIC_URL__ + context(filename)});
 });
 photosModules.sort((a, b) => {
   return a.filename.localeCompare(b.filename);
